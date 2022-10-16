@@ -104,5 +104,24 @@ function dragend() {
   Для меньшего количества ошибок лучше обращаться к event.target т.к у нас есть доступ к event.target ,например, мы можем добавлять к нему css стили в то время когда мы его перетаскиваем 
   обратимся к event.target.classList и добавим к нему класс, например,  hold                   event.target.classList.add('hold')
   
+  теперь во второй функции, так как мы обрабатываем событие dragend мы тоже получаем event и можем в этот момент удалить ненужный нам класс 
+  т.е дописать event.target.classList.remove('hold') 
+  Весь код будет выглядеть так:
+  const item = document.querySelector('.item')
+  
+   item.addEventListener('dragstart', dragstart)
+   item.addEventListener('dragend', dragend)
+  
+  
+   function dragstart(event) {
+    console.log('drag start', event.target)
+    event.taRGET.classList.add('hold')
+  }
+  
+ function dragend(event) {
+  console.log('drag end')
+  event.target.classList.remove('hold')
+  } 
+  
  
   
